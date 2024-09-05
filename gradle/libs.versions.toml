@@ -1,19 +1,51 @@
 [versions]
 agp = "8.3.2"
-kotlin = "1.9.20"
-compose = "1.5.4"
-compose-compiler = "1.5.4"
-compose-material3 = "1.1.2"
-androidx-activityCompose = "1.8.0"
+kotlin = "1.9.23"
+
+#compose
+compose = "1.7.0"
+compose-compiler = "1.5.11"
+compose-bom = "2024.09.00"
+compose-activity = "1.9.2"
+compose-lifecycle = "2.8.5"
+compose-coil = "2.1.0"
+compose-viewbinding = "1.7.0"
+compose-material = "1.7.0"
+compose-material3 = "1.3.0"
+
+#kotlin datetime
+datetime-version = "0.4.0"
+
+#ktor
+ktor = "2.3.3"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
-androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
+
+#Compose
+compose-activity = { group = "androidx.activity", name = "activity-compose", version.ref = "compose-activity" }
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
+compose-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "compose" }
+compose-preview-debug = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "compose" }
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
-compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
+compose-lifecycle = { group="androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "compose-lifecycle" }
+compose-material = { group = "androidx.compose.material", name = "material", version.ref="compose-material" }
+compose-material3 = { group = "androidx.compose.material3", name = "material3", version.ref="compose-material3" }
+compose-coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "compose-coil" }
+compose-viewbinding = { group = "androidx.compose.ui", name = "ui-viewbinding", version.ref = "compose-viewbinding" }
+
+#Kotlin DateTime
+kotlin-date-time = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "datetime-version" }
+
+#Ktor
+ktor-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
+ktor-serialization = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-serialization-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-android = { group = "io.ktor", name = "ktor-client-android", version.ref = "ktor" }
+
+[bundles]
+compose = ["compose-activity", "compose-ui", "compose-preview", "compose-foundation", "compose-lifecycle", "compose-material", "compose-material3", "compose-coil", "compose-viewbinding"]
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
